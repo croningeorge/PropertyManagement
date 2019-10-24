@@ -1,0 +1,27 @@
+<div class="animated fadeIn">
+    <!--/.row-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-edit"></i>Details Language
+                    <div class="card-header-actions">
+                        <button class="btn btn-block btn-outline-info" type="button" [routerLink]="['/language']"><i
+                                class="fa fa-list"></i> List Language</button>
+                    </div>
+                </div>
+                <div class="card-body" *ngIf='language'>
+                        <div class="col-sm-12">
+                            <div class="callout callout-warning">
+                                <small class="text-muted"><strong>Language Name:</strong>{{language.bankName}}</small><br>
+                                <small class="text-muted"><strong>Logo:</strong>Arbic</small><br>
+                                <small class="text-muted"><strong>Status:</strong>{{language.isActive}}</small><br>
+                            </div>
+                        </div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    

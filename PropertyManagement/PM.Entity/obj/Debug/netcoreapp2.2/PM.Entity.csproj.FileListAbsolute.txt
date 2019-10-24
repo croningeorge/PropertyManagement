@@ -1,0 +1,10 @@
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.deps.json
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.runtimeconfig.json
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.runtimeconfig.dev.json
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.dll
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.pdb
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.csproj.CoreCompileInputs.cache
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.AssemblyInfoInputs.cache
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.AssemblyInfo.cs
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.dll
+C:\Users\GeorgeCronin\source\repos\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.pdb

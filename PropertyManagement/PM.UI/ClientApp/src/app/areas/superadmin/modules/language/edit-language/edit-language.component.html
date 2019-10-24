@@ -1,0 +1,40 @@
+<div class="animated fadeIn">
+
+    <!--/.row-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-edit"></i>Edit Language
+            <div class="card-header-actions">
+              <button class="btn btn-block btn-outline-info" type="button" [routerLink]="['/language']"><i class="fa fa-list"></i> List Language</button>
+  
+            </div>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="bankName">Language Name</label>
+                  <input type="text" placeholder="Device Name" class="form-control" [formControl]="editForm.get('languageName')" [class.invalid]="!editForm.controls.languageName.valid">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="status">Status</label>
+                  <select name="isActive" class="form-control" [formControl]="editForm.get('isActive')">
+                    <option value="">-Select-</option>
+                    <option value="True">Active</option>
+                    <option value="False">In Active</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" [disabled]="!editForm.valid" class="btn btn-primary">Save changes</button>
+                <button class="btn btn-secondary" [routerLink]="['/language']" type="button">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div> <!--/.col-->
+      </div><!--/.row-->
+    </div>
+  </div>
+  

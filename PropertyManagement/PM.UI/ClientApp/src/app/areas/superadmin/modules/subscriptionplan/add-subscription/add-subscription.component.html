@@ -1,0 +1,56 @@
+<div class="animated fadeIn">
+
+    <!--/.row-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-edit"></i>Form Subscription Plan
+            <div class="card-header-actions">
+              <button class="btn btn-block btn-outline-info" type="button" [routerLink]="['/subscription']"><i class="fa fa-list"></i> List Subscription Plan</button>
+  
+            </div>
+          </div>
+          <div class="card-body">
+            <form class="form-horizontal" [formGroup]="subscriptionForm" novalidate (submit)="postSubscription(subscriptionForm.value)">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="planName">Plan Name</label>
+                  <input type="text" placeholder="ex:Plan" class="form-control" [formControl]="subscriptionForm.get('planName')"
+                         [class.invalid]="!subscriptionForm.controls.planName.valid">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="planType">Plan Type</label>
+                  <input type="text" placeholder="ex:plan-365 days" class="form-control" [formControl]="subscriptionForm.get('planType')"
+                         [class.invalid]="!subscriptionForm.controls.planType.valid">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="subscriptionStartDate">SubScription Start-Date</label>
+                  <input type="date" placeholder="ex:12/5/2019" class="form-control"
+                         [formControl]="subscriptionForm.get('subscriptionStartDate')" [class.invalid]="!subscriptionForm.controls.subscriptionStartDate.valid">
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="col-form-label" for="subscriptionEndDate">SubScription End-Date</label>
+                    <input type="date" placeholder="ex:12/5/2019" class="form-control"
+                           [formControl]="subscriptionForm.get('subscriptionEndDate')" [class.invalid]="!subscriptionForm.controls.subscriptionEndDate.valid">
+                  </div>
+                <div class="form-group col-md-6">
+                  <label class="col-form-label" for="status">Status</label>
+                  <select name="isActive" class="form-control" [formControl]="subscriptionForm.get('isActive')">
+                    <option value="">-Select-</option>
+                    <option value="True">Active</option>
+                    <option value="False">In Active</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" [disabled]="!subscriptionForm.valid" class="btn btn-primary">Save changes</button>
+                <button class="btn btn-secondary" [routerLink]="['/subscription']" type="button">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div> <!--/.col-->
+      </div><!--/.row-->
+    </div>
+  </div>
+  

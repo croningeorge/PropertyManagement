@@ -1,0 +1,60 @@
+<div class="animated fadeIn">
+
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Form Payment Gateway
+          <div class="card-header-actions">
+            <button class="btn btn-block btn-outline-info" type="button" [routerLink]="['/gateways']"><i class="fa fa-list"></i> List Payment Gateway</button>
+
+          </div>
+        </div>
+        <div class="card-body">
+          <form class="form-horizontal" [formGroup]="paymentForm" novalidate (submit)="postPayment(paymentForm.value)">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label class="col-form-label" for="bankName">Bank Name</label>
+                <input type="text" placeholder="ex:Bank Of Bahrain And Kuwait" class="form-control" [formControl]="paymentForm.get('bankName')"
+                       [class.invalid]="!paymentForm.controls.bankName.valid">
+              </div>
+              <div class="form-group col-md-6">
+                <label class="col-form-label" for="appId">Client ID</label>
+                <input type="text" placeholder="ex:266499932096-i86mfqujic0cndoph2r96es7uljglpt6.apps.googleusercontent.com" class="form-control" [formControl]="paymentForm.get('appID')"
+                       [class.invalid]="!paymentForm.controls.appID.valid">
+              </div>
+              <div class="form-group col-md-6">
+                <label class="col-form-label" for="secretcode">Client secret</label>
+                <input type="text" placeholder="ex:vAW1nRRgJJVysvaSQnHp5bJq" class="form-control" [formControl]="paymentForm.get('secretCode')"
+                       [class.invalid]="!paymentForm.controls.secretCode.valid">
+              </div>
+              <div class="form-group col-md-6">
+                <label class="col-form-label" for="appId">Redirect URL</label>
+                <input type="text" placeholder="http://wwww.helpstacks.com" class="form-control" [formControl]="paymentForm.get('redirectURL')"
+                       [class.invalid]="!paymentForm.controls.redirectURL.valid">
+              </div>             
+              <div class="form-group col-md-6">
+                <label class="col-form-label" for="expirydate">Expiry Date</label>
+                <input type="date" placeholder="ex:12/5/2019" class="form-control"
+                       [formControl]="paymentForm.get('expiredate')" [class.invalid]="!paymentForm.controls.expiredate.valid">
+              </div>
+              <div class="form-group col-md-6">
+                <label class="col-form-label" for="status">Status</label>
+                <select name="isActive" class="form-control" [formControl]="paymentForm.get('isActive')">
+                  <option value="">-Select-</option>
+                  <option value="True">Active</option>
+                  <option value="False">In Active</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" [disabled]="!paymentForm.valid" class="btn btn-primary">Save changes</button>
+              <button class="btn btn-secondary" [routerLink]="['/gateways']" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div> <!--/.col-->
+    </div><!--/.row-->
+  </div>
+</div>
