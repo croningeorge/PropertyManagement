@@ -13,7 +13,6 @@ C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.
 C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.runtimeconfig.dev.json
 C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.dll
 C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Entity\bin\Debug\netcoreapp2.2\PM.Entity.pdb
-C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.csprojAssemblyReference.cache
 C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.csproj.CoreCompileInputs.cache
 C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.AssemblyInfoInputs.cache
 C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Entity\obj\Debug\netcoreapp2.2\PM.Entity.AssemblyInfo.cs

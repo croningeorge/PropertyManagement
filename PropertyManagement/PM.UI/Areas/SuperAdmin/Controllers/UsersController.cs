@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using PM.Entity.Entities;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PM.UI.Areas.SuperAdmin.Controllers
@@ -31,6 +32,15 @@ namespace PM.UI.Areas.SuperAdmin.Controllers
             {
                 var users = await _userManager.Users.Include(u => u.UserRoles)
                                                     .ThenInclude(ur => ur.Role)
+                                                    .Select(u => new UserViewModel()
+                                                    {
+                                                        FullName = u.FullName,
+                                                        Email = u.Email,
+                                                        userName = u.UserName,
+                                                        lockoutEnabled=u.LockoutEnabled,
+                                                        EmailConfirmed=u.EmailConfirmed
+
+                                                    })
                                                     .ToListAsync();
 
                 return Ok(users);
@@ -43,5 +53,15 @@ namespace PM.UI.Areas.SuperAdmin.Controllers
                 return BadRequest("Failed to get users");
             }
         }
+        public class UserViewModel
+        {
+            public string FullName{ get; set; }
+            public string Email { get; set; }
+            public string userName { get; set; }
+            public bool? lockoutEnabled { get; set; }
+            public bool? EmailConfirmed { get; set; }
+
+        }
+       
     }
 }

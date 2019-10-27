@@ -39,6 +39,7 @@ namespace PM.UI
             services.AddDbContext<PropertyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("PropertyConnection")));
 
+
             //Application Services
             services.AddScoped<IPaymentGatewayRepository, PaymentGatewayRepository>();
             services.AddScoped<ISubscriptionPlanRepository, SubscriptionPlanRepository>();
@@ -52,6 +53,7 @@ namespace PM.UI
             services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.Stores.MaxLengthForKeys = 128)
             .AddEntityFrameworkStores<PropertyContext>()
             .AddDefaultTokenProviders();
+
 
             services.Configure<IdentityOptions>(options =>
             {

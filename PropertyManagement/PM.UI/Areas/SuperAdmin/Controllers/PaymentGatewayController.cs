@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PM.Entity.Entities;
 using PM.Repositories.Repositories.PaymentGatewaysRepository;
@@ -15,17 +16,19 @@ namespace PM.UI.Areas.SuperAdmin.Controllers
         #region Private Members
         private readonly IPaymentGatewayRepository _repository;
         private readonly ILogger<PaymentGatewayController> _logger;
+        private readonly IMapper _mapper;
 
         #endregion
 
         #region constructors
         public PaymentGatewayController(
             IPaymentGatewayRepository respository,
-            ILogger<PaymentGatewayController> logger)
+            ILogger<PaymentGatewayController> logger,
+            IMapper mapper)
         {
             _repository = respository;
             _logger = logger;
-
+            _mapper = mapper;
         }
         #endregion
 
@@ -35,6 +38,7 @@ namespace PM.UI.Areas.SuperAdmin.Controllers
         {
             try
             {
+
                 return Ok(await _repository.GetAllGateways());
             }
             catch (Exception ex)

@@ -3,4 +3,5 @@ export class IUsers {
   email: string;
   lockoutEnabled: any;
   userRoles: any;
+  emailConfirmed: any;
 }

@@ -22,17 +22,16 @@
                   <th>Email</th>
                   <th>Role</th>
                   <th>Status</th>
+                  <th>Email Confirmed</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let u of users">
-                  <td>1</td>
+                <tr *ngFor="let u of users; index as i;">
+                  <td>{{i+1}}</td>
                   <td>{{u.fullName}}</td>
                   <td>{{u.email}}</td>
                   <td>Admin</td>
-                  <td>{{u.lockoutEnabled}}</td>
-                  <td>{{u.userRoles}}</td>
                   <td>
                     <div *ngIf="u.lockoutEnabled==true; else notShow">
                       <span class="badge badge-success">Active</span>
@@ -41,10 +40,18 @@
                       <span class="badge badge-danger">InActive</span>
                     </ng-template>
                   </td>
+                  <td>
+                    <div *ngIf="u.emailConfirmed==true; else notShow">
+                      <span class="badge badge-success">Yes</span>
+                    </div>
+                    <ng-template #notShow>
+                      <span class="badge badge-danger">No</span>
+                    </ng-template>
+                  </td>
                   <td class="button_sec">
-                    <!--<button class="btn btn-outline-primary" type="button" (click)="detailsPayment(p)"><i class="fa fa-eye"></i></button>
+                    <button class="btn btn-outline-primary" type="button" (click)="detailsPayment(p)"><i class="fa fa-eye"></i></button>
                     <button class="btn btn-outline-warning" type="button" (click)="getPayment(p)"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-outline-danger" type="button" (click)="deletePayment(p)"><i class="fa fa-trash"></i></button>-->
+                    <button class="btn btn-outline-danger" type="button" (click)="deletePayment(p)"><i class="fa fa-trash"></i></button>
                   </td>
                 </tr>
               </tbody>
