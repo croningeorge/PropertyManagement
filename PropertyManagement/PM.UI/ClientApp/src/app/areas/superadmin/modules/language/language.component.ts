@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class LanguageComponent implements OnInit {
 
   public language: ILanguage[];
+  indLoading: boolean = false;
+  listFilter: string;
+  msg: string;
 
   constructor(
     private data: LanguageserviceService,
@@ -51,6 +54,22 @@ export class LanguageComponent implements OnInit {
     window.localStorage.setItem("languageId", language.languageId.toString());
     debugger;
     this.router.navigate(['/language/details-language']);
+  }
+
+
+  /**null records alert passing */
+  LoadOutlets(): void {
+    this.indLoading = true;
+    this.data.getLanguageList().subscribe(languages => {
+      this.language = languages;
+      this.indLoading = false;
+    }, error => (this.msg = <any>error));
+  }
+  /**Filtering */
+  criteriaChange(value: string): void {
+    if (value !== "[object Event]") {
+      this.listFilter = value;
+    }
   }
 } 
 

@@ -1,0 +1,70 @@
+<div class="animated fadeIn">
+    <!--/.row-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> List Registered Users
+          </div>
+          <div class="card-body">
+            <!--<button type="button" class="btn  btn-success pull-right" [routerLink]="['/users/add-users']">
+              <i class="fa fa-plus"></i> Add
+            </button>-->
+          </div>
+          <div class="card-body">
+            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../assets/img/loading.gif" width="32" height="32" /> Loading...</div>
+            <div *ngIf='users && users.length==0' class="alert alert-info" role="alert">No record found!</div>
+            <table class="table  table-hover table-responsive" *ngIf='users && users.length'>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let u of users">
+                  <td>1</td>
+                  <td>{{u.fullName}}</td>
+                  <td>{{u.email}}</td>
+                  <td>Admin</td>
+                  <td>{{u.lockoutEnabled}}</td>
+                  <td>{{u.userRoles}}</td>
+                  <td>
+                    <div *ngIf="u.lockoutEnabled==true; else notShow">
+                      <span class="badge badge-success">Active</span>
+                    </div>
+                    <ng-template #notShow>
+                      <span class="badge badge-danger">InActive</span>
+                    </ng-template>
+                  </td>
+                  <td class="button_sec">
+                    <!--<button class="btn btn-outline-primary" type="button" (click)="detailsPayment(p)"><i class="fa fa-eye"></i></button>
+                    <button class="btn btn-outline-warning" type="button" (click)="getPayment(p)"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-outline-danger" type="button" (click)="deletePayment(p)"><i class="fa fa-trash"></i></button>-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <nav>
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!--/.col-->
+    </div>
+    <!--/.row-->
+  </div>

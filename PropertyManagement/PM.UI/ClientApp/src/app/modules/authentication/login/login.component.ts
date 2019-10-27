@@ -16,6 +16,8 @@ export class LoginComponent {
   UserName: '',
   Password: ''
 }
+loading = false;
+
 constructor(
   private service: UserService, 
   private router: Router, 
@@ -27,12 +29,14 @@ ngOnInit() {
 }
 
 onSubmit(form: NgForm) {
+  this.loading = true;
   this.service.login(form.value).subscribe(
     (res: any) => {
       localStorage.setItem('token', res.token);
       this.router.navigateByUrl('/home');
     },
     err => {
+      this.loading = false;
       if (err.status == 400)
         this.toastr.error('Incorrect username or password.', 'Authentication failed.');
       else

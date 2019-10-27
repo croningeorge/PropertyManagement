@@ -61,6 +61,11 @@ export const routes: Routes = [
         loadChildren: () => import('./areas/superadmin/modules/language/language.module').then(m => m.LanguageModule)
       },
       {
+        path: 'users',
+        loadChildren: () => import('./areas/superadmin/modules/users/users.module').then(m => m.UsersModule)
+      },
+      
+      {
         path: 'base',
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
       },

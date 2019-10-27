@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class SubscriptionplanComponent implements OnInit {
 
   public subscription: ISubscription[];
+  indLoading: boolean = false;
+  listFilter: string;
+  msg: string;
 
   constructor(
     private data: SubscriptionplanService,
@@ -51,5 +54,20 @@ export class SubscriptionplanComponent implements OnInit {
     window.localStorage.setItem("planId", subscription.planId.toString());
     debugger;
     this.router.navigate(['/subscription/details-subscription']);
+  }
+
+   /**null records alert passing */
+   LoadOutlets(): void {
+    this.indLoading = true;
+    this.data.getSubscriptionList().subscribe(subscriptions => {
+      this.subscription = subscriptions;
+      this.indLoading = false;
+    }, error => (this.msg = <any>error));
+  }
+  /**Filtering */
+  criteriaChange(value: string): void {
+    if (value !== "[object Event]") {
+      this.listFilter = value;
+    }
   }
 }

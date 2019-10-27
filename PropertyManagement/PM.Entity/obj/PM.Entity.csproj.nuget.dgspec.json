@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GeorgeCronin\\source\\repos\\PropertyManagement\\PM.Entity\\PM.Entity.csproj": {}
+    "C:\\Users\\GeorgeCronin\\Documents\\GitHub\\PropertyManagement\\PropertyManagement\\PM.Entity\\PM.Entity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GeorgeCronin\\source\\repos\\PropertyManagement\\PM.Entity\\PM.Entity.csproj": {
+    "C:\\Users\\GeorgeCronin\\Documents\\GitHub\\PropertyManagement\\PropertyManagement\\PM.Entity\\PM.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GeorgeCronin\\source\\repos\\PropertyManagement\\PM.Entity\\PM.Entity.csproj",
+        "projectUniqueName": "C:\\Users\\GeorgeCronin\\Documents\\GitHub\\PropertyManagement\\PropertyManagement\\PM.Entity\\PM.Entity.csproj",
         "projectName": "PM.Entity",
-        "projectPath": "C:\\Users\\GeorgeCronin\\source\\repos\\PropertyManagement\\PM.Entity\\PM.Entity.csproj",
+        "projectPath": "C:\\Users\\GeorgeCronin\\Documents\\GitHub\\PropertyManagement\\PropertyManagement\\PM.Entity\\PM.Entity.csproj",
         "packagesPath": "C:\\Users\\GeorgeCronin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GeorgeCronin\\source\\repos\\PropertyManagement\\PM.Entity\\obj\\",
+        "outputPath": "C:\\Users\\GeorgeCronin\\Documents\\GitHub\\PropertyManagement\\PropertyManagement\\PM.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

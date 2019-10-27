@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -47,9 +45,13 @@ namespace PM.UI
             services.AddScoped<ILanguageRepository, LanguageRepository>();
 
 
-            services.AddDefaultIdentity<ApplicationUser>()
-               .AddRoles<IdentityRole>()
-               .AddEntityFrameworkStores<PropertyContext>();
+            //services.AddDefaultIdentity<ApplicationUser>()
+            //   .AddRoles<IdentityRole>()
+            //   .AddEntityFrameworkStores<PropertyContext>();
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.Stores.MaxLengthForKeys = 128)
+            .AddEntityFrameworkStores<PropertyContext>()
+            .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
             {

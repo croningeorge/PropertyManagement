@@ -12,8 +12,9 @@
           </button>
         </div>
         <div class="card-body">
-
-          <table class="table  table-hover table-responsive">
+          <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../assets/img/loading.gif" width="32" height="32" /> Loading...</div>
+          <div *ngIf='payment && payment.length==0' class="alert alert-info" role="alert">No record found!</div>
+          <table class="table  table-hover table-responsive" *ngIf='payment && payment.length'>
             <thead>
               <tr>
                 <th>ID</th>
@@ -27,7 +28,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let p of payment; index as i">
+              <tr *ngFor="let p of payment">
                 <td>{{p.paymentId}}</td>
                 <td>{{p.bankName}}</td>
                 <td>{{p.appID}}</td>

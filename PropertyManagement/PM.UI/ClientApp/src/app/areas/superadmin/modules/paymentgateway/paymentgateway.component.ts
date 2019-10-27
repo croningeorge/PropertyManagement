@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class PaymentgatewayComponent implements OnInit {
 
   public payment: IPaymentgateways[];
+  indLoading: boolean = false;
+  listFilter: string;
+  msg: string;
 
   constructor(
     private data: PaymentgatewayService,
@@ -51,5 +54,20 @@ export class PaymentgatewayComponent implements OnInit {
     window.localStorage.setItem("paymentId", payment.paymentId.toString());
     debugger;
     this.router.navigate(['/gateways/details-payment']);
+  }
+
+   /**null records alert passing */
+   LoadOutlets(): void {
+    this.indLoading = true;
+    this.data.getPaymentList().subscribe(payments => {
+      this.payment = payments;
+      this.indLoading = false;
+    }, error => (this.msg = <any>error));
+  }
+  /**Filtering */
+  criteriaChange(value: string): void {
+    if (value !== "[object Event]") {
+      this.listFilter = value;
+    }
   }
 } 

@@ -6,3 +6,23 @@
 
 // If you want to add something do it here
 @import "custom";
+
+
+.bg-primary {
+  background-color: #0070fa !important;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #293d45;
+  border-color: #293d45;
+}
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #fff;
+  background-color: #0070fa;
+  border-color: #0070fa;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #0070fa;
+  border-color: #0070fa;
+}

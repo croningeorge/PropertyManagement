@@ -41,6 +41,15 @@ export const navItems: NavData[] = [
   },
   {
     title: true,
+    name: "Administration"
+  },
+  {
+    name: 'Registered Users',
+    url: '/users',
+    icon: 'icon-people'
+  },
+  {
+    title: true,
     name: "Settings"
   },
   {
