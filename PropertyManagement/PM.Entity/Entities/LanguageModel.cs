@@ -10,6 +10,7 @@ namespace PM.Entity.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LanguageId { get; set; }
         public string LanguageName { get; set; }
+        public string Image { get; set; }
         public bool? IsActive { get; set; }
         public DateTime? LastModifiedDate { get; set; }
     }

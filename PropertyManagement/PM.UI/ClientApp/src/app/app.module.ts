@@ -51,6 +51,7 @@ import { RegisterComponent } from './modules/authentication/register/register.co
 
 
 
+
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

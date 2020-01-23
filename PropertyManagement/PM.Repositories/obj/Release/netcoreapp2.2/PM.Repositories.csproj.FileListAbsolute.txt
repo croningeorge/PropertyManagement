@@ -1,0 +1,12 @@
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\bin\Release\netcoreapp2.2\PM.Repositories.deps.json
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\bin\Release\netcoreapp2.2\PM.Repositories.dll
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\bin\Release\netcoreapp2.2\PM.Repositories.pdb
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\bin\Release\netcoreapp2.2\PM.Entity.dll
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\bin\Release\netcoreapp2.2\PM.Entity.pdb
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\obj\Release\netcoreapp2.2\PM.Repositories.csprojAssemblyReference.cache
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\obj\Release\netcoreapp2.2\PM.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\obj\Release\netcoreapp2.2\PM.Repositories.AssemblyInfoInputs.cache
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\obj\Release\netcoreapp2.2\PM.Repositories.AssemblyInfo.cs
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\obj\Release\netcoreapp2.2\PM.Repositories.csproj.CopyComplete
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\obj\Release\netcoreapp2.2\PM.Repositories.dll
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Repositories\obj\Release\netcoreapp2.2\PM.Repositories.pdb

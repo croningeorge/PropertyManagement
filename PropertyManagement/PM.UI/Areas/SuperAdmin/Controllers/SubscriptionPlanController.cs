@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PM.Entity.Entities;
-using PM.Repositories.Repositories.SubscriptionPlanRepository;
+using PM.Repositories.Dtos.SuperAdmin;
+using PM.Repositories.Repositories.SuperAdmin.SubscriptionPlanRepository;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,17 +20,19 @@ namespace PM.UI.Areas.SuperAdmin.Controllers
         #region Private Members
         private readonly ISubscriptionPlanRepository _repository;
         private readonly ILogger<SubscriptionPlanController> _logger;
+        private readonly IMapper _mapper;
 
         #endregion
 
         #region constructors
         public SubscriptionPlanController(
             ISubscriptionPlanRepository respository,
-            ILogger<SubscriptionPlanController> logger)
+            ILogger<SubscriptionPlanController> logger,
+            IMapper mapper)
         {
             _repository = respository;
             _logger = logger;
-
+            _mapper = mapper;
         }
         #endregion
 
@@ -40,7 +42,12 @@ namespace PM.UI.Areas.SuperAdmin.Controllers
         {
             try
             {
-                return Ok(await _repository.GetAllSubscription());
+
+                return Ok(
+                    _mapper.Map<IEnumerable<SubscriptionPlanModel>,
+                    IEnumerable<SubscriptionPlanDto>>
+                    (await _repository.GetAllSubscription()));
+
             }
             catch (Exception ex)
             {
@@ -63,15 +70,15 @@ namespace PM.UI.Areas.SuperAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] SubscriptionPlanModel item)
         {
-            if (item.planId == 0)
+            if (item.SubscriptionPlanId == 0)
             {
                 await _repository.Add(item);
-                return CreatedAtRoute("GetSubscription", new { Controller = "Subscription", id = item.planId }, item);
+                return CreatedAtRoute("GetSubscription", new { Controller = "Subscription", id = item.SubscriptionPlanId }, item);
             }
             else
             {
 
-                if (item.planId > 0)
+                if (item.SubscriptionPlanId > 0)
                 {
                     await _repository.Update(item);
                 }

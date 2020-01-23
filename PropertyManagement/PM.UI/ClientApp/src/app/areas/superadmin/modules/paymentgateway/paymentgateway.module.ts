@@ -15,13 +15,13 @@ import { DetailsPaymentComponent } from './details-payment/details-payment.compo
 
 
 
+
 @NgModule({
   declarations: [
     PaymentgatewayComponent,
     AddPaymentComponent,
     EditPaymentComponent,
-    DetailsPaymentComponent,
- 
+    DetailsPaymentComponent
   ],
   imports: [
     HttpClientModule,

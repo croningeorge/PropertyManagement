@@ -19,7 +19,84 @@ namespace PM.Entity.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<string>("UserId")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("ProviderDisplayName");
+
+                    b.Property<string>("UserId")
+                        .IsRequired();
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -43,27 +120,7 @@ namespace PM.Entity.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType");
-
-                    b.Property<string>("ClaimValue");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+            modelBuilder.Entity("PM.Entity.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -73,15 +130,15 @@ namespace PM.Entity.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<bool>("LockoutEnabled");
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<bool?>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
@@ -115,49 +172,9 @@ namespace PM.Entity.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType");
-
-                    b.Property<string>("ClaimValue");
-
-                    b.Property<string>("UserId")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider");
-
-                    b.Property<string>("ProviderKey");
-
-                    b.Property<string>("ProviderDisplayName");
-
-                    b.Property<string>("UserId")
-                        .IsRequired();
-
-                    b.HasKey("LoginProvider", "ProviderKey");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserLogins");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("PM.Entity.Entities.ApplicationUserRole", b =>
                 {
                     b.Property<string>("UserId");
 
@@ -170,19 +187,103 @@ namespace PM.Entity.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("PM.Entity.Entities.Area", b =>
                 {
-                    b.Property<string>("UserId");
+                    b.Property<int>("AreaId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("AreaName");
 
-                    b.Property<string>("Name");
+                    b.Property<bool>("IsActive");
 
-                    b.Property<string>("Value");
+                    b.HasKey("AreaId");
 
-                    b.HasKey("UserId", "LoginProvider", "Name");
+                    b.ToTable("Area");
+                });
 
-                    b.ToTable("AspNetUserTokens");
+            modelBuilder.Entity("PM.Entity.Entities.City", b =>
+                {
+                    b.Property<int>("CityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CityName");
+
+                    b.Property<bool>("IsActive");
+
+                    b.HasKey("CityId");
+
+                    b.ToTable("City");
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.CompanyModel", b =>
+                {
+                    b.Property<int>("CompanyId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CompanyAddress");
+
+                    b.Property<string>("CompanyNameOrRef");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("PostCode");
+
+                    b.Property<int>("areaId");
+
+                    b.Property<int>("cityId");
+
+                    b.Property<int>("companyTypeId");
+
+                    b.Property<int>("countryId");
+
+                    b.Property<int>("subscriptionPlanId");
+
+                    b.HasKey("CompanyId");
+
+                    b.HasIndex("areaId");
+
+                    b.HasIndex("cityId");
+
+                    b.HasIndex("companyTypeId");
+
+                    b.HasIndex("countryId");
+
+                    b.HasIndex("subscriptionPlanId");
+
+                    b.ToTable("Company");
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.CompanyType", b =>
+                {
+                    b.Property<int>("CompanyTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CompanyTypeName");
+
+                    b.Property<bool>("IsActive");
+
+                    b.HasKey("CompanyTypeId");
+
+                    b.ToTable("CompanyType");
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.Country", b =>
+                {
+                    b.Property<int>("CountryId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CountryName");
+
+                    b.Property<bool>("IsActive");
+
+                    b.HasKey("CountryId");
+
+                    b.ToTable("Country");
                 });
 
             modelBuilder.Entity("PM.Entity.Entities.LanguageModel", b =>
@@ -190,6 +291,8 @@ namespace PM.Entity.Migrations
                     b.Property<int>("LanguageId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image");
 
                     b.Property<bool?>("IsActive");
 
@@ -204,7 +307,7 @@ namespace PM.Entity.Migrations
 
             modelBuilder.Entity("PM.Entity.Entities.PaymentGateway", b =>
                 {
-                    b.Property<int>("paymentId")
+                    b.Property<int>("PaymentId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -220,45 +323,50 @@ namespace PM.Entity.Migrations
 
                     b.Property<string>("SecretCode");
 
-                    b.HasKey("paymentId");
+                    b.HasKey("PaymentId");
 
-                    b.ToTable("PaymentGateways");
+                    b.ToTable("PaymentGateway");
                 });
 
-            modelBuilder.Entity("PM.Entity.Entities.SubscriptionPlanModel", b =>
+            modelBuilder.Entity("PM.Entity.Entities.PlanTypeModel", b =>
                 {
-                    b.Property<int>("planId")
+                    b.Property<int>("PlanTypeId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Days");
 
                     b.Property<bool?>("IsActive");
 
                     b.Property<string>("PlanName");
 
-                    b.Property<string>("PlanType");
+                    b.HasKey("PlanTypeId");
+
+                    b.ToTable("PlanType");
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.SubscriptionPlanModel", b =>
+                {
+                    b.Property<int>("SubscriptionPlanId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("SubscriptionEndDate");
 
                     b.Property<DateTime?>("SubscriptionStartDate");
 
-                    b.HasKey("planId");
+                    b.Property<int>("planTypeId");
+
+                    b.HasKey("SubscriptionPlanId");
+
+                    b.HasIndex("planTypeId");
 
                     b.ToTable("SubscriptionPlans");
                 });
 
-            modelBuilder.Entity("PM.Entity.Entities.ApplicationUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasDiscriminator().HasValue("ApplicationUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
+                    b.HasOne("PM.Entity.Entities.ApplicationRole")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -266,7 +374,7 @@ namespace PM.Entity.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
+                    b.HasOne("PM.Entity.Entities.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -274,20 +382,7 @@ namespace PM.Entity.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
+                    b.HasOne("PM.Entity.Entities.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -295,9 +390,58 @@ namespace PM.Entity.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
+                    b.HasOne("PM.Entity.Entities.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.ApplicationUserRole", b =>
+                {
+                    b.HasOne("PM.Entity.Entities.ApplicationRole", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PM.Entity.Entities.ApplicationUser", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.CompanyModel", b =>
+                {
+                    b.HasOne("PM.Entity.Entities.Area", "Area")
+                        .WithMany()
+                        .HasForeignKey("areaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PM.Entity.Entities.City", "City")
+                        .WithMany()
+                        .HasForeignKey("cityId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PM.Entity.Entities.CompanyType", "CompanyType")
+                        .WithMany()
+                        .HasForeignKey("companyTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PM.Entity.Entities.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("countryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PM.Entity.Entities.SubscriptionPlanModel", "SubscriptionPlan")
+                        .WithMany()
+                        .HasForeignKey("subscriptionPlanId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PM.Entity.Entities.SubscriptionPlanModel", b =>
+                {
+                    b.HasOne("PM.Entity.Entities.PlanTypeModel", "PlanType")
+                        .WithMany()
+                        .HasForeignKey("planTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

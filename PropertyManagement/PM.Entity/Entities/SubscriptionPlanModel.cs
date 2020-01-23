@@ -8,11 +8,14 @@ namespace PM.Entity.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int planId { get; set; }
-        public string PlanName { get; set; }
-        public string PlanType { get; set; }
+        public int SubscriptionPlanId { get; set; }
+        public PlanTypeModel PlanType { get; set; }
         public DateTime? SubscriptionStartDate { get; set; }
         public DateTime? SubscriptionEndDate { get; set; }
-        public bool? IsActive { get; set; }
+
+
+        //One-to-one Relationship
+        [Required]
+        public int planTypeId { get; set; }
     }
 }

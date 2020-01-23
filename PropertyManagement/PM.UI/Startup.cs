@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,12 +10,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using PM.Entity.Context;
 using PM.Entity.Entities;
-using PM.Repositories.Repositories.LanguageRepository;
-using PM.Repositories.Repositories.PaymentGatewaysRepository;
-using PM.Repositories.Repositories.SubscriptionPlanRepository;
+using PM.Repositories.Repositories.SuperAdmin.CompanyRepository;
+using PM.Repositories.Repositories.SuperAdmin.LanguageRepository;
+using PM.Repositories.Repositories.SuperAdmin.PaymentGatewaysRepository;
+using PM.Repositories.Repositories.SuperAdmin.SubscriptionPlanRepository;
 using System;
+using System.Reflection;
 using System.Text;
 
 namespace PM.UI
@@ -33,26 +37,31 @@ namespace PM.UI
         {
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-           
+            services.AddMvc().AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-            //connection migration
+            //Db migration
             services.AddDbContext<PropertyContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("PropertyConnection")));
 
 
             //Application Services
-            services.AddScoped<IPaymentGatewayRepository, PaymentGatewayRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ISubscriptionPlanRepository, SubscriptionPlanRepository>();
+            services.AddScoped<IPaymentGatewayRepository, PaymentGatewayRepository>();
             services.AddScoped<ILanguageRepository, LanguageRepository>();
+           
 
+            //Configurations
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            //services.AddAutoMapper();
 
             //services.AddDefaultIdentity<ApplicationUser>()
             //   .AddRoles<IdentityRole>()
             //   .AddEntityFrameworkStores<PropertyContext>();
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.Stores.MaxLengthForKeys = 128)
-            .AddEntityFrameworkStores<PropertyContext>()
-            .AddDefaultTokenProviders();
+            .AddEntityFrameworkStores<PropertyContext>();
+            //.AddDefaultTokenProviders();
 
 
             services.Configure<IdentityOptions>(options =>
@@ -88,9 +97,12 @@ namespace PM.UI
                     ClockSkew = TimeSpan.Zero
                 };
             });
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+            });
 
-            //Application Services
-            services.AddScoped<IPaymentGatewayRepository, PaymentGatewayRepository>();
+        
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -102,14 +114,14 @@ namespace PM.UI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.Use(async (ctx, next) =>
-            {
-                await next();
-                if (ctx.Response.StatusCode == 204)
-                {
-                    ctx.Response.ContentLength = 0;
-                }
-            });
+            //app.Use(async (ctx, next) =>
+            //{
+            //    await next();
+            //    if (ctx.Response.StatusCode == 204)
+            //    {
+            //        ctx.Response.ContentLength = 0;
+            //    }
+            //});
 
 
             if (env.IsDevelopment())
@@ -153,6 +165,7 @@ namespace PM.UI
 
                 if (env.IsDevelopment())
                 {
+                    spa.Options.StartupTimeout = new TimeSpan(0, 0, 80);
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });

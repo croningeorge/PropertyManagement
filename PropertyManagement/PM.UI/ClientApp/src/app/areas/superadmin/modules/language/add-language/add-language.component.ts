@@ -11,6 +11,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-language.component.scss']
 })
 export class AddLanguageComponent implements OnInit {
+  
+  imageUrl: string = "..../../.../../assets/img/default-image.png";
+  fileToUpload: File = null;
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
+
+
 
   public languageForm: FormGroup;
   public language: ILanguage[];

@@ -1,21 +1,24 @@
 <app-header
+
   [navbarBrandRouterLink]="['/dashboard']"
   [fixed]="true"
-  [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
-  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo.png', width: 170, height: 38, alt: 'PropertyManagement'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 25, alt: 'CoreUI Logo'}"
   [sidebarToggler]="'lg'"
   [asideMenuToggler]="'lg'">
-  <ul class="nav navbar-nav d-md-down-none">
+  <!--<ul class="nav navbar-nav d-md-down-none">
     <li class="nav-item px-3">
-      <a class="nav-link" href="#">Dashboard</a>
+      <i class="fa fa-plus fa-lg mt-4"></i>
     </li>
     <li class="nav-item px-3">
-      <a class="nav-link" href="#">Users</a>
+      <i class="icon-grid icons font-2xl d-block mt-4"></i>
     </li>
     <li class="nav-item px-3">
-      <a class="nav-link" href="#">Settings</a>
+      <i class="icon-refresh icons font-2xl d-block mt-4"></i>
     </li>
-  </ul>
+  </ul>-->
+
+
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item d-md-down-none">
       <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>
@@ -83,7 +86,7 @@
       <router-outlet></router-outlet>
     </div><!-- /.container-fluid -->
   </main>
-  <app-aside [fixed]="true" [display]="false">
+  <!--<app-aside [fixed]="true" [display]="false">
     <tabset>
       <tab>
         <ng-template tabHeading><i class="icon-list"></i></ng-template>
@@ -333,9 +336,9 @@
         </div>
       </tab>
     </tabset>
-  </app-aside>
+  </app-aside>-->
 </div>
-<app-footer>
-  <span><a href="http://helpstacks.com/">PropertyManagement</a> &copy; 2019 creativeLabs.</span>
+<app-footer class="h-25">
+  <!--<span><a href="http://helpstacks.com/">PropertyManagement</a> &copy; 2019 creativeLabs.</span>-->
   <span class="ml-auto">Powered by <a href="http://helpstacks.com/">PM+</a></span>
 </app-footer>

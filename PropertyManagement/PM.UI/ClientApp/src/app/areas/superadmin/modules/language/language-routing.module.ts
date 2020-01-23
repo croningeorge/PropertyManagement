@@ -11,7 +11,7 @@ import { DetailsLanguageComponent } from './details-language/details-language.co
 const routes: Routes = [
   {
     path: '',
-    data: { title: 'Language'},
+    data: { title: 'Languages'},
     children: [
       {
         path: '',

@@ -49,6 +49,10 @@ export const routes: Routes = [
         loadChildren: () => import('./areas/superadmin/modules/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
+        path: 'company',
+        loadChildren: () => import('./areas/superadmin/modules/company/company.module').then(m => m.CompanyModule)
+      },
+      {
         path: 'subscription',
         loadChildren: () => import('./areas/superadmin/modules/subscriptionplan/subscriptionplan.module').then(m => m.SubscriptionplanModule)
       },

@@ -8,7 +8,7 @@ import { UsersComponent } from './users.component';
 const routes: Routes = [
   {
     path: '',
-    data: { title: 'users'},
+    data: { title: 'Registered Users'},
     children: [
       {
         path: '',

@@ -1,0 +1,9 @@
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\bin\Debug\netcoreapp2.2\PM.Data.deps.json
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\bin\Debug\netcoreapp2.2\PM.Data.dll
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\bin\Debug\netcoreapp2.2\PM.Data.pdb
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\obj\Debug\netcoreapp2.2\PM.Data.csprojAssemblyReference.cache
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\obj\Debug\netcoreapp2.2\PM.Data.csproj.CoreCompileInputs.cache
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\obj\Debug\netcoreapp2.2\PM.Data.AssemblyInfoInputs.cache
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\obj\Debug\netcoreapp2.2\PM.Data.AssemblyInfo.cs
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\obj\Debug\netcoreapp2.2\PM.Data.dll
+C:\Users\GeorgeCronin\Documents\GitHub\PropertyManagement\PropertyManagement\PM.Data\obj\Debug\netcoreapp2.2\PM.Data.pdb

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PM.Entity.Entities;
-using PM.Repositories.Repositories.LanguageRepository;
+using PM.Repositories.Repositories.SuperAdmin.LanguageRepository;
 using System;
 using System.Threading.Tasks;
 

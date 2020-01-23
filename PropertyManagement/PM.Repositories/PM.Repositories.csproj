@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repositories\SubscriptionPlanRepository\**" />
+    <EmbeddedResource Remove="Repositories\SubscriptionPlanRepository\**" />
+    <None Remove="Repositories\SubscriptionPlanRepository\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PM.Entity\PM.Entity.csproj" />
   </ItemGroup>
 
