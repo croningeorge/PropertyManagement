@@ -27,7 +27,7 @@ export class SubscriptionplanService {
     return this.httpClient.get<Array<ISubscription>>(this.URL);
   }
   public update(subscripiton: ISubscription): Observable<ISubscription> {
-    return this.httpClient.put<ISubscription>(`${this.URL}/${subscripiton.planId}`, subscripiton);
+    return this.httpClient.put<ISubscription>(`${this.URL}/${subscripiton.subscriptionPlanId}`, subscripiton);
   }
 }
 

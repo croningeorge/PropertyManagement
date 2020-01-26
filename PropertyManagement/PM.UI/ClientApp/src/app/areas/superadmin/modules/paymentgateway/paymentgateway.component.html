@@ -1,8 +1,7 @@
 <div class="animated fadeIn">
   <!--/.row-->
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
+  <div class="card-header">Payment gateways</div>
+
         <div class="card-header">
           <i class="fa fa-plus" [routerLink]="['/gateways/add-payment']"></i>
           <i class="icon-grid icons"></i>
@@ -10,18 +9,19 @@
         </div>
         
           <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../assets/img/loading.gif" width="32" height="32" /> Loading...</div>
-          <div *ngIf='payment && payment.length==0' class="alert alert-info" role="alert">No record found!</div>
+          <div *ngIf='payment && payment.length==0' class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> No
+            record found!,Click here to go to the new experience</div>
           <table class="table  table-hover table-responsive" *ngIf='payment && payment.length'>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>BANK</th>
-                <th>APPID</th>
-                <th>SECRET CODE</th>
-                <th>REDIRECT URL</th>
-                <th>STATUS</th>
-                <th>EXPIRY</th>
-                <th>ACTIONS</th>
+                <th>Refno</th>
+                <th>Bank</th>
+                <th>App id</th>
+                <th>Secret code</th>
+                <th>Redirect url</th>
+                <th>Status</th>
+                <th>Expiry</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -70,9 +70,6 @@
             </li>
           </ul>
         </div>
-      </div>
-    </div>
-    <!--/.col-->
-  </div>
-  <!--/.row-->
+
+
 

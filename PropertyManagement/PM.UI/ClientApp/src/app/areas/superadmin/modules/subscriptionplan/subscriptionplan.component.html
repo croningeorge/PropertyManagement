@@ -1,39 +1,40 @@
 <div class="animated fadeIn">
     <!--/.row-->
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
+    <div class="card-header">Subscription Plans</div>
+
+        
           <div class="card-header">
             <i class="fa fa-plus" [routerLink]="['/subscription/add-subscription']"></i>
             <i class="icon-grid icons"></i>
             <i class="icon-refresh icons"></i>
           </div>
-          <div class="card-body">
+  
             <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../assets/img/loading.gif" width="32" height="32" /> Loading...</div>
-            <div *ngIf='subscription && subscription.length==0' class="alert alert-info" role="alert">No record found!</div>
+            <div *ngIf='subscription && subscription.length==0' class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> No
+              record found!,Click here to go to the new experience</div>
+           
+            
             <table class="table  table-hover table-responsive" *ngIf='subscription && subscription.length'>
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>PLANNAME</th>
-                  <th>PLANTYPE</th>
-                  <th>DAYS</th>
-                  <th>START DATE</th>
-                  <th>END DATE</th>
-                  <th>STATUS</th>
-                  <th>ACTIONS</th>
+                  <th>Ref no</th>
+                  <th>Plan name</th>
+                  <th>Days</th>
+                  <th>Start date</th>
+                  <th>End date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let s of subscription">
-                  <td>{{s.planId}}</td>
-                  <td>{{s.planName}}</td>
-                  <td>{{s.planType}}</td>
-                  <td>{{s.days}}</td>
+                  <td>{{s.subscriptionPlanId}}</td>
+                  <td>{{s.planType.planName}}</td>
+                  <td>{{s.planType.days}}</td>
                   <td>{{s.subscriptionStartDate | date}}</td>
                   <td>{{s.subscriptionEndDate | date}}</td>
                   <td>
-                    <div *ngIf="s.isActive==true; else notShow">
+                    <div *ngIf="s.planType.isActive==true; else notShow">
                       <span class="badge badge-success">Active</span>
                     </div>
                     <ng-template #notShow>
@@ -61,9 +62,3 @@
               </ul>
             </nav>
           </div>
-        </div>
-      </div>
-      <!--/.col-->
-    </div>
-    <!--/.row-->
-  </div>

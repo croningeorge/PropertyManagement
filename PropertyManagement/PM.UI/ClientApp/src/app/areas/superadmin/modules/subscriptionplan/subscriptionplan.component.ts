@@ -22,6 +22,7 @@ export class SubscriptionplanComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    debugger;
     this.data.getSubscriptionList()
       .subscribe(data =>
         this.subscription = data
@@ -31,7 +32,7 @@ export class SubscriptionplanComponent implements OnInit {
 
   getSubscription(subscription: ISubscription): void {
     window.localStorage.removeItem("planId");
-    window.localStorage.setItem("planId", subscription.planId.toString());
+    window.localStorage.setItem("planId", subscription.subscriptionPlanId.toString());
     debugger;
     this.router.navigate(['/subscription/edit-subscription']);
   };
@@ -39,7 +40,7 @@ export class SubscriptionplanComponent implements OnInit {
 
   deleteSubscription(subscription: ISubscription) {
     if (confirm('Are you sure to delete this record ?') == true) {
-      this.data.deleteSubscription(subscription.planId)
+      this.data.deleteSubscription(subscription.subscriptionPlanId)
         .subscribe(x => {
           this.subscription = this.subscription.filter(u => u !== subscription);
         })
@@ -51,7 +52,7 @@ export class SubscriptionplanComponent implements OnInit {
   detailsSubscription(subscription: ISubscription):void{
     debugger;
     window.localStorage.removeItem("planId");
-    window.localStorage.setItem("planId", subscription.planId.toString());
+    window.localStorage.setItem("planId", subscription.subscriptionPlanId.toString());
     debugger;
     this.router.navigate(['/subscription/details-subscription']);
   }

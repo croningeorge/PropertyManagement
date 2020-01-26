@@ -13,9 +13,13 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using PM.Entity.Context;
 using PM.Entity.Entities;
+using PM.Repositories.Repositories.SuperAdmin.AreaRepository;
+using PM.Repositories.Repositories.SuperAdmin.CityRepository;
 using PM.Repositories.Repositories.SuperAdmin.CompanyRepository;
+using PM.Repositories.Repositories.SuperAdmin.CountryRepository;
 using PM.Repositories.Repositories.SuperAdmin.LanguageRepository;
 using PM.Repositories.Repositories.SuperAdmin.PaymentGatewaysRepository;
+using PM.Repositories.Repositories.SuperAdmin.PlanTypeRepository;
 using PM.Repositories.Repositories.SuperAdmin.SubscriptionPlanRepository;
 using System;
 using System.Reflection;
@@ -49,7 +53,11 @@ namespace PM.UI
             services.AddScoped<ISubscriptionPlanRepository, SubscriptionPlanRepository>();
             services.AddScoped<IPaymentGatewayRepository, PaymentGatewayRepository>();
             services.AddScoped<ILanguageRepository, LanguageRepository>();
-           
+            services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<ICityRepository, CityRepository>();
+            services.AddScoped<IAreaRepository, AreaRepository>();
+            services.AddScoped<IPlanTypeRepository, PlanTypeRepository>();
+
 
             //Configurations
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

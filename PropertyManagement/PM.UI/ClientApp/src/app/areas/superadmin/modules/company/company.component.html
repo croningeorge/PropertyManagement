@@ -1,73 +1,80 @@
 <div class="animated fadeIn">
-    <!--/.row-->
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header">
-            <i class="fa fa-plus" [routerLink]="['/company/add-company']"></i>
-            <i class="icon-grid icons"></i>
-            <i class="icon-refresh icons"></i>
-          </div>
-          <div class="card-body">
-            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../assets/img/loading.gif" width="32" height="32" /> Loading...</div>
-            <div *ngIf='company && company.length==0' class="alert alert-info" role="alert">No record found!</div>
-            <table class="table  table-hover table-responsive" *ngIf='company && company.length'>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>NAME</th>
-                  <th>OFFICIALADDRESS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let c of company">
-                  <td>{{c.companyId}}</td>
-                  <td>{{c.companyName}}</td>
-                  <td>{{c.companyAddress}}</td>
+  <!--/.row-->
+  <div class="card-header">Registered Company</div>
 
-                  <!-- <td>
-                    <div *ngIf="p.isActive==true; else notShow">
-                      <span class="badge badge-success">ACTIVE</span>
-                    </div>
-                    <ng-template #notShow>
-                      <span class="badge badge-danger">IN ACTIVE</span>
-                    </ng-template>
-                  </td>
-                  <td>{{p.expiredate | date}}</td> -->
-  
-                  <td class="button_sec">
-                    <button class="btn btn-outline-primary" type="button" (click)="detailsPayment(p)"><i class="fa fa-eye"></i></button>
-                    <button class="btn btn-outline-warning" type="button" (click)="getPayment(p)"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-outline-danger" type="button" (click)="deletePayment(p)"><i class="fa fa-trash"></i></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#">Prev</a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">4</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
+
+  <div class="card-header">
+    <i class="fa fa-plus" [routerLink]="['/company/add-company']"></i>
+    <i class="icon-grid icons"></i>
+    <i class="icon-refresh icons"></i>
+  </div>
+
+
+  <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../assets/img/loading.gif" width="32"
+      height="32" /> Loading...</div>
+  <div *ngIf='company && company.length==0' class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> No
+    record found!,Click here to go to the new experience</div>
+  <table class="table  table-hover table-responsive" *ngIf='company && company.length'>
+    <thead>
+      <tr>
+        <th>Ref no</th>
+        <th>Company name</th>
+        <th>Location</th>
+        <th>Company type</th>
+        <th>Subscription dates</th>
+        <th>Subscribed plan</th>
+        <th>Next renual</th>
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of company">
+        <td>{{c.companyID}}</td>
+        <td>{{c.companyNameOrRef}}</td>
+        <td>{{c.country.countryName}},{{c.city.cityName}},{{c.area.areaName}}</td>
+        <td>{{c.companyType.companyTypeName}}</td>
+        <td>{{c.subscriptionPlan.subscriptionStartDate | date}} > {{c.subscriptionPlan.subscriptionEndDate | date }}
+        </td>
+        <td>{{c.subscriptionPlan.planType.planName}}</td>
+        <td>{{c.subscriptionPlan.planType.days}}</td>
+        <td>
+          <div *ngIf="c.isActive==true; else notShow">
+            <span class="badge badge-success">ACTIVE</span>
           </div>
-        </div>
-      </div>
-      <!--/.col-->
-    </div>
-    <!--/.row-->
-  
-  
+          <ng-template #notShow>
+            <span class="badge badge-danger">IN ACTIVE</span>
+          </ng-template>
+        </td>
+        <td class="button_sec">
+          <button class="btn btn-outline-primary" type="button" (click)="detailsPayment(p)"><i
+              class="fa fa-eye"></i></button>
+          <button class="btn btn-outline-warning" type="button" (click)="getPayment(p)"><i
+              class="fa fa-pencil"></i></button>
+          <button class="btn btn-outline-danger" type="button" (click)="deletePayment(p)"><i
+              class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#">Prev</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</div>

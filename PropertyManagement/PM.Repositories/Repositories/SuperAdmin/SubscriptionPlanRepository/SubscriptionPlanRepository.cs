@@ -37,9 +37,12 @@ namespace PM.Repositories.Repositories.SuperAdmin.SubscriptionPlanRepository
                     .Include(t => t.PlanType)
                     .OrderBy(p => p.PlanType.PlanName)
                     .ToListAsync();
+
+
             }
             catch (Exception ex)
             {
+
 
                 _logger.LogError($"Failed to get all subscriptionplans:{ex}");
 

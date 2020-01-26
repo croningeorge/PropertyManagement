@@ -31,7 +31,7 @@
 }
 
 .app-header {
-  background-color: #0079ef;
+  background-color: #003057;
   border-bottom: 1px solid #e0e2e3;
 }
 
@@ -48,17 +48,17 @@ body {
 }
 
 .sidebar .nav-title {
-  color: rgba(1, 66, 114, 1);
+  color: #ffffff;
 }
 
 .sidebar {
   color: #0079ef;
-  background: #ffffff;
+  background: #003c6c;
 }
 
 
 .sidebar .nav-link {
-  color: rgba(0, 66, 114, 1);
+  color: #ffffff;
 }
 
 .sidebar .nav-link.active {
@@ -69,7 +69,7 @@ body {
 
 
 .sidebar .nav-link:hover .nav-icon {
-  color: #0079ef;
+  color: #90c644;
 }
 
 .sidebar .nav-link.active .nav-icon {
@@ -78,7 +78,7 @@ body {
 
 
 .sidebar .nav-link .nav-icon {
-  color: #0079ef;
+  color: #90c644;
 }
 
 
@@ -174,4 +174,24 @@ body {
 
 .sidebar .nav-link {
   padding: 0.35rem 2rem;
+}
+.font-weight-bold {
+   font-weight: 0;
+}
+
+.fa  {
+  color: #419adf;
+}
+.icon
+{
+  color: #419adf;
+}
+body {
+  background-color: #ffff;
+}
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #c8ced3;
 }

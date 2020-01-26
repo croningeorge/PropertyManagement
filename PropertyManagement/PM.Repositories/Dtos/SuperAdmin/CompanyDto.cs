@@ -6,6 +6,7 @@
         public string companyNameOrRef { get; set; }
         public string companyAddress { get; set; }
         public string postCode { get; set; }
+        public bool isActive { get; set; }
         public CountryDto country { get; set; }
         public CityDto city { get; set; }
         public AreaDto area { get; set; }

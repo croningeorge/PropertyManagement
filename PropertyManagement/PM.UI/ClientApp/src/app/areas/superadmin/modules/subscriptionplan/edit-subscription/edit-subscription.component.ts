@@ -45,12 +45,12 @@ export class EditSubscriptionComponent implements OnInit {
   editSubscription(subscription: ISubscription) {
     //this.toasterService.info("Record id retrive SuccessFully", "Device Regsiter");
     this.editForm.patchValue({
-      planId: subscription.planId,
-      planName: subscription.planName,
-      planType: subscription.planType,
-      subscriptionStartDate: subscription.subscriptionStartDate,
-      subscriptionEndDate: subscription.subscriptionEndDate,
-      isActive: subscription.isActive
+      planId: subscription.subscriptionPlanId,
+      // planName: subscription.planName,
+      // planType: subscription.planType,
+      // subscriptionStartDate: subscription.subscriptionStartDate,
+      // subscriptionEndDate: subscription.subscriptionEndDate,
+      // isActive: subscription.isActive
     });
   }
 

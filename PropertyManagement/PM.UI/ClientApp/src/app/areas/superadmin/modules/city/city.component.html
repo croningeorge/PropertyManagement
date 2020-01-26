@@ -1,0 +1,67 @@
+<div class="animated fadeIn">
+    <!--/.row-->
+    <div class="card-header">City</div>
+  
+          <div class="card-header">
+            <i class="fa fa-plus" [routerLink]="['/city/add-city']"></i>
+            <i class="icon-grid icons"></i>
+            <i class="icon-refresh icons"></i>
+          </div>
+          
+            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../assets/img/loading.gif" width="32" height="32" /> Loading...</div>
+            <div *ngIf='city && city.length==0' class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> No
+              record found!,Click here to go to the new experience</div>
+            <table class="table  table-hover table-responsive" *ngIf='city && city.length'>
+              <thead>
+                <tr>
+                  <th>Refno</th>
+                  <th>City name</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of city">
+                  <td>{{c.cityId}}</td>
+                  <td>{{c.cityName}}</td>
+                  <td>
+                    <div *ngIf="c.isActive==true; else notShow">
+                      <span class="badge badge-success">ACTIVE</span>
+                    </div>
+                    <ng-template #notShow>
+                      <span class="badge badge-danger">IN ACTIVE</span>
+                    </ng-template>
+                  </td>  
+                  <td class="button_sec">
+                    <button class="btn btn-outline-primary" type="button" (click)="detailsPayment(p)"><i class="fa fa-eye"></i></button>
+                    <button class="btn btn-outline-warning" type="button" (click)="getPayment(p)"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-outline-danger" type="button" (click)="deletePayment(p)"><i class="fa fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#">Prev</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </div>
+  
+  
+  
+  

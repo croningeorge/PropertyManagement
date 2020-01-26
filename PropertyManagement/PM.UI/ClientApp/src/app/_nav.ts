@@ -46,12 +46,40 @@ export const navItems: NavData[] = [
   },
   {
     title: true,
+    name: "Financial"
+  },
+  {
+    name: 'Payments',
+    url: '/gateways',
+    icon: 'cui-yen'
+  },
+  {
+    name: 'Documents',
+    url: '/gateways',
+    icon: 'cui-file'
+  },
+  {
+    title: true,
+    name: "Reports"
+  },
+  {
+    name: 'Reports',
+    url: '/gateways',
+    icon: 'cui-note'
+  },
+  {
+    title: true,
     name: "Administration"
   },
   {
     name: 'Registered Users',
     url: '/users',
     icon: 'icon-people'
+  },
+  {
+    name: 'Roles',
+    url: '/users',
+    icon: 'cui-lock-locked'
   },
   {
     title: true,
@@ -69,11 +97,41 @@ export const navItems: NavData[] = [
     
   },
   {
+    name: 'Plan Type',
+    url: '/plantype',
+    icon: 'cui-code'
+    
+  },
+  {
+    name: 'Country',
+    url: '/country',
+    icon: 'icon-handbag'
+    
+  },
+  {
+    name: 'City',
+    url: '/city',
+    icon: 'icon-handbag'
+    
+  },
+  {
+    name: 'Area',
+    url: '/area',
+    icon: 'icon-handbag'
+    
+  },
+  {
+    name: 'Contacts',
+    url: '/subscription',
+    icon: 'icon-handbag'
+    
+  },
+  {
     name: 'Language',
     url: '/language',
     icon: 'icon-flag'
   },
-    
+  
 
   // {
   //   title: true,

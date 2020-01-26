@@ -57,6 +57,22 @@ export const routes: Routes = [
         loadChildren: () => import('./areas/superadmin/modules/subscriptionplan/subscriptionplan.module').then(m => m.SubscriptionplanModule)
       },
       {
+        path: 'country',
+        loadChildren: () => import('./areas/superadmin/modules/country/country.module').then(m => m.CountryModule)
+      },
+      {
+        path: 'city',
+        loadChildren: () => import('./areas/superadmin/modules/city/city.module').then(m => m.CityModule)
+      },
+      {
+        path: 'area',
+        loadChildren: () => import('./areas/superadmin/modules/area/area.module').then(m => m.AreaModule)
+      },
+      {
+        path: 'plantype',
+        loadChildren: () => import('./areas/superadmin/modules/plantype/plantype.module').then(m => m.PlanTypeModule)
+      },
+      {
         path: 'gateways',
         loadChildren: () => import('./areas/superadmin/modules/paymentgateway/paymentgateway.module').then(m => m.PaymentgatewayModule)
       },
